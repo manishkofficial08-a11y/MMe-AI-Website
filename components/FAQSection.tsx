@@ -78,6 +78,9 @@ export function FAQSection() {
               >
                 <button
                   type="button"
+                  id={`faq-question-${idx}`}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
                   className="w-full flex items-center justify-between p-6 text-left"
                 >
@@ -93,11 +96,16 @@ export function FAQSection() {
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-sm leading-relaxed text-slate-300 border-t border-white/[0.04]">
-                    {faq.a}
-                  </div>
-                )}
+                {/* Always rendered so every answer is in the server HTML; `hidden` keeps closed ones out of view */}
+                <div
+                  id={`faq-answer-${idx}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${idx}`}
+                  hidden={!isOpen}
+                  className="px-6 pb-6 pt-1 text-sm leading-relaxed text-slate-300 border-t border-white/[0.04]"
+                >
+                  {faq.a}
+                </div>
               </div>
             );
           })}

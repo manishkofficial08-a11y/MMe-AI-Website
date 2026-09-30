@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LegalDocument } from "@/components/LegalDocument";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy-policy" },
   title: "Privacy Policy | MMe-AI",
   description:
     "Privacy Policy for MMe-AI demo requests, contact details and custom AI dashboard services.",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LegalDocument } from "@/components/LegalDocument";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/data-deletion-request" },
   title: "Data Deletion Request | MMe-AI",
   description:
     "Request deletion of demo or contact information shared with MMe-AI.",
